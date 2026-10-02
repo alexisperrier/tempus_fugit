@@ -1,0 +1,29 @@
+# Personal activity data (window titles, URLs): never commit
+data/
+*.db
+*.db-journal
+*.sqlite
+*.jsonl
+*.backup_*
+
+# Keys and secrets (signing identity lives in the keychain, never here)
+*.p12
+*.pem
+*.key
+*.cer
+.env
+.env.*
+.streamlit/secrets.toml
+
+# Python
+.venv/
+__pycache__/
+.pytest_cache/
+
+# Build output
+macos/TimeTrackMenu/build/
+*.app/
+
+# Misc
+logs/
+.DS_Store

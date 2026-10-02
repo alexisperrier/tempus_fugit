@@ -1,0 +1,8 @@
+# Dashboard shows window titles and URLs: only serve it to this Mac.
+[server]
+address = "127.0.0.1"
+headless = true
+
+# Don't send Streamlit usage telemetry.
+[browser]
+gatherUsageStats = false
