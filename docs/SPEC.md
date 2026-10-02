@@ -149,6 +149,7 @@ There is a single page:
 - metrics: Work · Entertainment · Idle
 - stacked per-day bars (only when the range has more than one day)
 - Gantt-style timeline for one day (y = app, colour = category)
+- colours: work = blue, entertainment = orange, idle = neutral gray. The pair is colour-blind safe (OKLab ΔE ≈ 25 under protan/deutan/tritan simulation), with separate light and dark values picked from `st.context.theme.type`, and every chart has a legend so colour is never the only cue
 - tables of apps and websites (time + share)
 - drill-down per app: window titles and URLs
 

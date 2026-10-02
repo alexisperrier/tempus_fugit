@@ -4,7 +4,7 @@ import streamlit as st
 from timetrack.classify import ENTERTAINMENT_APPS
 from timetrack.formatting import format_duration
 from timetrack.queries import activities_df, category_totals, totals_by
-from timetrack.ui import CATEGORY_COLORS, date_range_picker, open_db
+from timetrack.ui import category_colors, date_range_picker, open_db
 
 st.set_page_config(page_title="TimeTrack", layout="wide")
 st.title("TimeTrack")
@@ -29,7 +29,8 @@ c1.metric("Work", format_duration(cats.get("work", 0)))
 c2.metric("Entertainment", format_duration(cats.get("entertainment", 0)))
 c3.metric("Idle", format_duration(cats.get("idle", 0)))
 
-category_scale = alt.Scale(domain=list(CATEGORY_COLORS), range=list(CATEGORY_COLORS.values()))
+colors = category_colors()
+category_scale = alt.Scale(domain=list(colors), range=list(colors.values()))
 
 days = sorted(df["day"].unique())
 if len(days) > 1:

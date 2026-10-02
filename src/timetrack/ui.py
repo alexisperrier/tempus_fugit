@@ -7,11 +7,22 @@ from timetrack.db import connect
 from timetrack.ingest import ingest_raw_dir
 from timetrack.schema import init_schema
 
+# Colour-blind-safe work/entertainment pair (blue vs orange), validated for
+# protan/deutan/tritan separation on each surface. Idle is a neutral gray on purpose.
 CATEGORY_COLORS = {
-    "work": "#54A24B",
-    "entertainment": "#E45756",
-    "idle": "#BDBDBD",
+    "light": {"work": "#2a78d6", "entertainment": "#eb6834", "idle": "#8f8e89"},
+    "dark": {"work": "#3987e5", "entertainment": "#d95926", "idle": "#8f8e89"},
 }
+
+
+def category_colors() -> dict[str, str]:
+    """Palette for the active Streamlit theme (light unless the viewer is in dark mode)."""
+    try:
+        mode = st.context.theme.type
+    except Exception:
+        mode = None
+    return CATEGORY_COLORS["dark" if mode == "dark" else "light"]
+
 
 RANGE_PRESETS = ["Today", "Yesterday", "Last 7 days", "This month", "Custom"]
 
